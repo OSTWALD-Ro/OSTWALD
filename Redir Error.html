@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .redirect-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00bfff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="iframe" src=""></iframe>
+
+  <button class="redirect-btn" onclick="redirectTo('https://ostwald-ro.github.io/OSTWALD/OSTWALD.Ra')">Botón 1</button>
+  <button class="redirect-btn" onclick="redirectTo('https://ostwald-ro.github.io/OSTWALD/OSTWALD.Re')">Botón 2</button>
+  <button class="redirect-btn" onclick="redirectTo('https://ostwald-ro.github.io/OSTWALD/OSTWALD.Ri')">Botón 3</button>
+  <button class="redirect-btn" onclick="redirectTo('https://ostwald-ro.github.io/OSTWALD/OSTWALD.Ro')">Botón 4</button>
+  <button class="redirect-btn" onclick="redirectTo('https://ostwald-ro.github.io/OSTWALD/OSTWALD.Ru')">Botón 5</button>
+
+  <script>
+    const iframe = document.getElementById("iframe");
+
+    function redirectTo(url) {
+      iframe.src = url;
+    }
+
+    iframe.onload = function() {
+      // Si la página cargó exitosamente, no es necesario hacer nada
+    };
+
+    iframe.onerror = function() {
+      // Si ocurre un error (por ejemplo, la página no existe), cargar la página de error en el iframe
+      iframe.src = "https://ostwald-ro.github.io/OSTWALD/404-Redir%20Error";
+      window.location.href = 'https://ostwald-ro.github.io/OSTWALD/404-Redir%20Error';
+    };
+  </script>
+</body>
+</html>
