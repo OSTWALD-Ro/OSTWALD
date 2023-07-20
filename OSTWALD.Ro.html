@@ -9,7 +9,11 @@
       padding: 0;
       overflow: hidden;
       color: white;
-      
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100vh;      
     }
 
     #texto {
@@ -59,6 +63,15 @@
     animation-delay: calc(var(--delay) * 0.5s);
   }
 
+  .title {
+    margin-top: 50px;
+  }
+
+  .title button {
+    background-color: rgb(192, 255, 192);
+    color: black;
+  }
+
     @keyframes animacionTexto {
       0%, 100% {
         transform: translateY(0%);
@@ -89,7 +102,16 @@
     <span id="texto3"></span>
   </div>
 
+  <div class="title">
+    <button onclick="redirigir('OSTWALD', 'Peliculas', 0)">Películas de OSTWALD</button>
+  </div>
+
   <script>
+    // Función para redirigir a la página de error
+    var URLOffLinePage = "file:///media/removable/OSTWALD/OSTWALD/Project/Web/YouTube/OSTWALD.Ro.html";
+
+    var URLOnLinePage = "https://ostwald-ro.github.io/OSTWALD/OSTWALD.Ro";
+
     // Variables modificables
     var identidad = "Neutro";
 
@@ -110,6 +132,15 @@
     var speedDotsTexto3 = 250;
 
     var pageTitle;
+
+    function redirigir(pageId, peliculaId, error) {
+      // Realizar redireccionamiento a la página de selección de formato con el ID de la película
+      if (error == 0) {
+        window.location.href = ("https://ostwald-ro.github.io/" + pageId + "/" + peliculaId);
+      } else {
+        window.location.href = ("https://ostwald-ro.github.io/" + "Error" + "/" + error);
+      }
+    }
 
     function modificarMostrarTexto(MostrarTexto) {
       var MostrarTexto = MostrarTexto;
@@ -251,6 +282,16 @@
     
     window.addEventListener('resize', AjustarTamanoTexto);
     AjustarTamanoTexto();
+
+    // Verificar la conexión a Internet cuando cambia el estado de la conexión
+    window.addEventListener("offline", function() {
+      window.location.href = URLOffLinePage;
+    });
+
+    window.addEventListener("online", function() {
+      // Si vuelve a estar en línea, redirige nuevamente a la página principal
+      window.location.href = URLOnLinePage;
+    });
   </script>
 </body>
 </html>
