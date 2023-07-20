@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: white;
+    }
+
+    h4 {
+      margin-top: 0px;
+    }
+
+    .movie {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .movie img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .movie button {
+      padding: 10px;
+      font-size: 20px;
+      background-color: rgb(192, 255, 192);
+      color: black;
+    }
+
+    .title button {
+      background-color: rgb(192, 255, 192);
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <h1>Películas de OSTWALD</h1>
+    <button onclick="redirigir('OSTWALD', 'OSTWALD.Ro', 0)">Pagina Anterior</button>
+  </div>
+
+  <div class="movie">
+    <img src="https://archive.org/download/uY7dKtR2pV3eG6Jf/Super%20Mario%20Bros.%20La%20Pel%C3%ADcula%20%28AA%29%20%282023%29%20%28Portada%29%20%282D%29.jpg" alt="Super Mario Bros. La Película (AA) (2023) (Portada) (2D)">
+    <h4>Super Mario Bros.</h4><h4>La Película (AA) (2023)</h4>
+    <button onclick="redirigir('Pelicula', 'uY7dKtR2pV3eG6Jf', 0)">Ver || Descargar</button>
+  </div>
+
+  <div class="movie">
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Película">
+    <h4>Película</h4>
+    <h4>Proximamente</h4>
+    <button onclick="redirigir('Pelicula', 'sN5vQcE9kF2aR3jP', 404)">Ver || Descargar</button>
+  </div>
+
+  <div class="movie">
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Película">
+    <h4>Película</h4>
+    <h4>Proximamente</h4>
+    <button onclick="redirigir('Pelicula', 'bX6uGdZ8pH7mY4iA', 404)">Ver || Descargar</button>
+  </div>
+
+  <div class="movie">
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Película">
+    <h4>Película</h4>
+    <h4>Proximamente</h4>
+    <button onclick="redirigir('Pelicula', 'lM3oNtV7wB9eQ2rD', 404)">Ver || Descargar</button>
+  </div>
+
+  <div class="movie">
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Película">
+    <h4>Película</h4>
+    <h4>Proximamente</h4>
+    <button onclick="redirigir('Pelicula', 'rT2yF6gH1jS5vKpL', 404)">Ver || Descargar</button>
+  </div>
+
+  <!--
+
+  <div class="movie">
+    <img src="ruta_de_la_imagen.jpg" alt="Imagen de la Película">
+    <h4>Película</h4>
+    <h4>Proximamente</h4>
+    <button onclick="redirigir('Pelicula', '')">Ver || Descargar</button>
+  </div>
+
+  -->
+
+  <script>
+    function redirigir(pageId, peliculaId, error) {
+      // Realizar redireccionamiento a la página de selección de formato con el ID de la película
+      if (error == 0) {
+        window.location.href = ("https://ostwald-ro.github.io/" + pageId + "/" + peliculaId);
+      } else {
+        window.location.href = ("https://ostwald-ro.github.io/" + "Error" + "/" + error);
+      }
+    }
+  </script>
+</body> 
+</html>
