@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juegos de OSTWALD</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: white;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 20px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      color: white;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgb(192, 255, 192);
+      color: black;
+      margin: 10px;
+    }
+
+    .title button {
+      background-color: rgb(192, 255, 192);
+      color: black;
+    }
+
+    .portada img {
+      margin-top: 20px;
+      width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <h1>Juegos de OSTWALD</h1>
+    <button onclick="redirigir('OSTWALD', 'Paginas', 0)">Pagina Anterior</button>
+  </div>
+
+  <div class="portada">
+    <img src="https://ostwald-ro.github.io/Juego/Frozen_Elsa1.png">
+  </div>
+
+  <div class="button-container">
+    <button onclick="redirigir('Juego', 'Frozen', 0)">Juego de Frozen</button>
+  </div>
+
+  <script>
+    function redirigir(pageId, peliculaId, error) {
+      if (error === 0) {
+        window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + peliculaId;
+      } else {
+        window.location.href = "https://ostwald-ro.github.io/Error/" + error;
+      }
+    }
+  </script>
+</body>
+</html>
