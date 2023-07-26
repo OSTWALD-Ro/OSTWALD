@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Juegos de OSTWALD</title>
+  <title id="page-title"></title>
   <style>
     body {
       background-color: black;
@@ -45,18 +45,21 @@
 </head>
 <body>
   <div class="title">
-    <h1>Juegos de OSTWALD</h1>
+    <h1 id="title">Juegos de OSTWALD</h1>
     <button onclick="redirigir('OSTWALD', 'Páginas', 0)">Pagina Anterior</button>
   </div>
 
   <div class="portada">
-    <img src="https://ostwald-ro.github.io/Juego/Frozen_Elsa1.png">
+    <img src="https://ostwald-ro.github.io/Juego/Frozen_Elsa1.png" onerror="this.onerror=null; this.src='https://ostwald-ro.github.io/Error/Imagen.jpg';" alt="Imagen no disponible">
     <div class="button-container">
       <button onclick="redirigir('Juego', 'Frozen', 0)">Juego de Frozen</button>
     </div>
   </div>
 
   <script>
+    var pageTitle = document.getElementById("page-title");
+    var title = document.getElementById("title");
+
     function redirigir(pageId, peliculaId, error) {
       if (error === 0) {
         window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + peliculaId;
@@ -64,6 +67,10 @@
         window.location.href = "https://ostwald-ro.github.io/Error/" + error;
       }
     }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      pageTitle.textContent = title.textContent;
+    });
   </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ostwald Mouralis</title>
+  <title id="page-title"></title>
   <style>
     body {
       background-color: black;
@@ -44,18 +44,21 @@
 </head>
 <body>
   <div class="title">
-    <h1>Ostwald Mouralis</h1>
+    <h1 id="title">Ostwald Mouralis</h1>
     <p>...</p>
   </div>
 
   <div class="portada">
-    <img src="https://ostwald-ro.github.io/OSTWALD/OSTWALD%20(Fondo).jpg">
+    <img src="https://ostwald-ro.github.io/OSTWALD/OSTWALD%20(Fondo).jpg" onerror="this.onerror=null; this.src='https://ostwald-ro.github.io/Error/Imagen.jpg';" alt="Imagen no disponible">
     <div class="button-container">
       <button onclick="redirigir('OSTWALD', 'Páginas', 0)">Pagina Siguiente</button>
     </div>
   </div>
 
   <script>
+    var pageTitle = document.getElementById("page-title");
+    var title = document.getElementById("title");
+
     function redirigir(pageId, peliculaId, error) {
       if (error === 0) {
         window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + peliculaId;
@@ -63,6 +66,10 @@
         window.location.href = "https://ostwald-ro.github.io/Error/" + error;
       }
     }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      pageTitle.textContent = title.textContent;
+    });
   </script>
 </body>
 </html>

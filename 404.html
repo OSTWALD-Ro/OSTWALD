@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title id="pageTitle"></title>
+  <title id="page-title"></title>
   <style>
     body {
       background-color: black;
@@ -74,11 +74,11 @@
 
     @keyframes animacionTexto {
       0%, 100% {
-        transform: translateY(0%);
+        transform: translateY(25%);
       }
 
        50% {
-        transform: translateY(-100%);
+        transform: translateY(-75%);
       }
     }
 
@@ -107,6 +107,8 @@
   </div>
 
   <script>
+    var pageTitle = document.getElementById("page-title");
+
     // Variables modificables
     var identidad = "Neutro";
 
@@ -126,24 +128,12 @@
     var dotsTexto3 = [];
     var speedDotsTexto3 = 250;
 
-    var pageTitle;
+    // Generar letras dinámicamente
+    var textoDiv = document.getElementById('texto');
+    var texto1Span = document.getElementById('texto1');
+    var texto2Span = document.getElementById('texto2');
+    var texto3Span = document.getElementById('texto3');
 
-    function modificarMostrarTexto(MostrarTexto) {
-      var MostrarTexto = MostrarTexto;
-    }
-    
-    function modificarMostrarTexto1(MostrarTexto1) {
-      var MostrarTexto1 = MostrarTexto1;
-    }
-    
-    function modificarMostrarTexto2(MostrarTexto2) {
-      var MostrarTexto2 = MostrarTexto2;
-    }
-    
-    function modificarMostrarTexto3(MostrarTexto3) {
-      var MostrarTexto3 = MostrarTexto3;
-    }
-    
     function modificarTexto(texto) {
       var texto = texto;
       document.getElementById('texto').textContent = texto;
@@ -207,26 +197,12 @@
         location.reload();
       }, (1600 * 10));
     }
-
-    function modificarTitulo(pageTitle) {
-      var pageTitle = pageTitle;
-      document.getElementById('pageTitle').textContent = pageTitle;
-    }
     
-    modificarMostrarTexto();
-    modificarMostrarTexto1();
-    modificarMostrarTexto2();
-    modificarMostrarTexto3()
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById('page-title').textContent = texto;
 
-    modificarTextoConsola();
-
-    modificarTitulo(texto);
-    
-    // Generar letras dinámicamente
-    var textoDiv = document.getElementById('texto');
-    var texto1Span = document.getElementById('texto1');
-    var texto2Span = document.getElementById('texto2');
-    var texto3Span = document.getElementById('texto3');
+      modificarTextoConsola();
+    });
 
     if (mostrarTexto) {
       for (var i = 0; i < texto.length; i++) {
