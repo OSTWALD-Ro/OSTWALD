@@ -217,36 +217,35 @@
 
       modificarTextoConsola();
 
-    });
-
-    if (mostrarTexto) {
-      for (var i = 0; i < texto.length; i++) {
-        var letra = document.createElement("span");
-        letra.className = "letra";
-        letra.style.setProperty("--delay", i);
-        letra.textContent = texto[i];
-        textoDiv.appendChild(letra);
-      }
-    }
-
-    if (mostrarTexto1) {
-      var texto1Texto = document.createTextNode(texto1);
-      texto1Span.appendChild(texto1Texto);
-    }
-
-    if (mostrarTexto2) {
-      for (var j = 0; j < texto2.length; j++) {
-        var palabra = document.createElement("span");
-        palabra.textContent = texto2[j];
-        texto2Span.appendChild(palabra);
-
-        if (j !== texto2.length - 1) {
-          var espacio = document.createElement("span");
-          espacio.textContent = " ";
-          texto2Span.appendChild(espacio);
+      if (mostrarTexto) {
+        for (var i = 0; i < texto.length; i++) {
+          var letra = document.createElement("span");
+          letra.className = "letra";
+          letra.style.setProperty("--delay", i);
+          letra.textContent = texto[i];
+          textoDiv.appendChild(letra);
         }
       }
-    }
+
+      if (mostrarTexto1) {
+        var texto1Texto = document.createTextNode(texto1);
+        texto1Span.appendChild(texto1Texto);
+      }
+
+      if (mostrarTexto2) {
+        for (var j = 0; j < texto2.length; j++) {
+          var palabra = document.createElement("span");
+          palabra.textContent = texto2[j];
+          texto2Span.appendChild(palabra);
+
+          if (j !== texto2.length - 1) {
+            var espacio = document.createElement("span");
+            espacio.textContent = " ";
+            texto2Span.appendChild(espacio);
+          }
+        }
+      }
+    });
 
     function AjustarTamanoTexto() {
       var textoDiv = document.getElementById('texto');
