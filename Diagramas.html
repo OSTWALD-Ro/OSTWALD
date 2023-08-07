@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="page-title"></title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: white;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 20px;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      color: white;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgb(192, 255, 192);
+      color: black;
+      margin: 10px;
+    }
+
+    .title button {
+      background-color: rgb(192, 255, 192);
+      color: black;
+    }
+
+    .portada img {
+      margin-top: 20px;
+      width: 200px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <h1 id="title">Diagramas de OSTWALD</h1>
+    <button onclick="redirigir('OSTWALD', 'Páginas', 0)">Pagina Anterior</button>
+  </div>
+
+  <div class="portada">
+    <img src="https://ostwald-ro.github.io/Diagrama/Relevador.svg" onerror="this.onerror=null; this.src='https://ostwald-ro.github.io/Error/Imagen.jpg';" alt="Imagen no disponible">
+    <div class="button-container">
+      <button onclick="redirigir('Diagrama', 'Relevador', 0)">Relevador</button>
+    </div>
+  </div>
+
+  <script>
+    var pageTitle = document.getElementById("page-title");
+    var title = document.getElementById("title");
+
+    function redirigir(pageId, peliculaId, error) {
+      if (error === 0) {
+        window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + peliculaId;
+      } else {
+        window.location.href = "https://ostwald-ro.github.io/Error/" + error;
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      pageTitle.textContent = title.textContent;
+    });
+  </script>
+</body>
+</html>
