@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="title"></title>
+  <style id="styles"></style>
+</head>
+<body>
+  <script>
+    function redirigir(pageId, id, error) {
+      if (error === 0) {
+        window.location.href = "https://ostwald-ro.github.io/" + pageId + "/" + id;
+      } else {
+        window.location.href = "https://ostwald-ro.github.io/Error/" + error;
+      }
+    }
+
+    // Reproducir automáticamente el video cuando se haya cargado la página
+    document.addEventListener("DOMContentLoaded", function() {
+      const styles = document.getElementById("styles");
+      const title = document.getElementById("title");
+      
+      styles.innerHTML = `
+        body, html {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          background-color: black;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      `;
+
+      document.title = "Páginas";
+      title.innerHTML = "Páginas";
+
+      redirigir("OSTWALD", "Páginas", 0);
+    });
+  </script>
+</body>
+</html>
