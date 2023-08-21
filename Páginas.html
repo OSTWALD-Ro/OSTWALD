@@ -36,9 +36,50 @@
     }
 
     .logotipo img {
-      margin-top: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
       width: auto;
       height: 300px;
+      position: relative;
+    }
+
+    @keyframes moveEffect {
+      0%, 100% {
+        transform: translate(0, 20px);
+      }
+      8.3% {
+        transform: translate(15px, 15px);
+      }
+      16.6% {
+        transform: translate(30px, 0px);
+      }
+      25% {
+        transform: translate(15px, 15px);
+      }
+      33.3% {
+        transform: translate(0px, 20px);
+      }
+      41.6% {
+        transform: translate(-15px, 20px);
+      }
+      50% {
+        transform: translate(-30px, 0px);
+      }
+      58.3% {
+        transform: translate(-15px, 15px);
+      }
+      66.6% {
+        transform: translate(0px, 20px);
+      }
+      74.9% {
+        transform: translate(0px, 15px);
+      }
+      83.3% {
+        transform: translate(0px, 0px);
+      }
+      91.6% {
+        transform: translate(0px, 0px);
+      }
     }
   </style>
 </head>
@@ -49,7 +90,7 @@
   </div>
 
   <div class="logotipo">
-    <img src="https://ostwald-ro.github.io/OSTWALD/OSTWALD%20(Fondo).jpg" onerror="this.onerror=null; this.src='https://ostwald-ro.github.io/Error/Imagen.jpg';" alt="Imagen no disponible">
+    <img id="logo-image" src="https://ostwald-ro.github.io/OSTWALD/OSTWALD%20(Fondo).jpg" onerror="this.onerror=null; this.src='https://ostwald-ro.github.io/Error/Imagen.jpg';" alt="Imagen no disponible">
   </div>
 
   <div class="button-container">
@@ -69,9 +110,16 @@
         window.location.href = "https://ostwald-ro.github.io/Error/" + error;
       }
     }
-    
+
+    function applyRandomEffect(element) {
+      element.style.animation = "moveEffect 5s infinite";
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
       pageTitle.textContent = title.textContent;
+
+      const logoImage = document.getElementById("logo-image");
+      applyRandomEffect(logoImage);
     });
   </script>
 </body>
