@@ -40,7 +40,7 @@ style1.textContent = `
     margin: solid;
     padding: solid;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
