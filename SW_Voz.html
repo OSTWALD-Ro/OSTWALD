@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambiador de Voces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cambiador de Voces</h1>
+        <textarea id="texto" placeholder="Ingresa tu texto aquí"></textarea>
+        <select id="voces"></select>
+        <button id="reproducir">Reproducir</button>
+    </div>
+
+    <script>
+        function cargarVoces() {
+            const voces = window.speechSynthesis.getVoices();
+            const select = document.getElementById('voces');
+
+            voces.forEach(function(voice, index) {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = voice.name;
+                select.appendChild(option);
+            });
+        }
+
+        window.speechSynthesis.onvoiceschanged = cargarVoces;
+
+        document.getElementById('reproducir').addEventListener('click', function() {
+            const texto = document.getElementById('texto').value;
+            const vozSeleccionadaIndex = document.getElementById('voces').value;
+
+            const voces = window.speechSynthesis.getVoices();
+            const vozSeleccionada = voces[vozSeleccionadaIndex];
+
+            const mensaje = new SpeechSynthesisUtterance(texto);
+            mensaje.voice = vozSeleccionada;
+
+            window.speechSynthesis.speak(mensaje);
+        });
+    </script>
+</body>
+</html>
