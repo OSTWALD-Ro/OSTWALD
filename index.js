@@ -24,6 +24,15 @@ function redirigir__index(page_Id__index, subpage_Id__index, error__index) {
   }
 }
 
+function if_browser_OSTWALD__index()
+{
+  // Comprobar si Ejecuta Desde el Navegador OSTWALD
+
+  var_if_browser_OSTWALD__index = false;
+
+  return var_if_browser_OSTWALD__index;
+}
+
 function init__index()
 {
   // Código Inicial
@@ -32,7 +41,7 @@ function init__index()
 function main__index() 
 {
   // Código Principal
-  
+
   create_html_1__Ostwald_Ro();
   create_html_1_init__Ostwald_Ro();
 }
