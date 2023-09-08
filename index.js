@@ -4,6 +4,8 @@
 
 // Variables
 
+var var_if_browser_OSTWALD__index;
+
 // Funciones
 
 function delete_html__index()
