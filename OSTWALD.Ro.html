@@ -44,11 +44,11 @@
       color: white;
       font-family: Arial, sans-serif;
       font-size: 1.3vw;
-      margin-bottom: 5vh;
+      margin-bottom: 6vh;
     }
 
     #texto1 {
-      color: green;
+      color: rgb(0, 255, 0);
       margin-right: 0.5vw;
     }
 
@@ -57,7 +57,7 @@
     }
 
     #texto3 {
-    color: yellow;
+    color: rgb(255, 255, 0);
     visibility: hidden;
     display: flex;
     animation: animacionPuntos 20s steps(20, end) infinite;
@@ -66,12 +66,28 @@
 
   .title {
     margin-top: 50px;
-    margin-bottom: 5vh;
+    margin-bottom: 6vh;
   }
 
   .title button {
     background-color: rgb(192, 255, 192);
     color: black;
+  }
+
+  .Button_Ostwald_Program {
+    background-color: rgba( 0, 0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 20px 20px 20px 20px;
+  
+    border: ridge rgba(63, 191, 63, 0.5);
+    color: rgb(63, 191, 63);
+    box-shadow: 0 0 1.5vh rgb(63, 191, 63);
+  }
+
+  .Button_Ostwald_Program:hover {
+    border: double rgb(0, 255, 0);
+    color: rgb(0, 255, 0);
+    box-shadow: 0 0 1.5vh rgb(0, 255, 0);
   }
 
     @keyframes animacionTexto {
@@ -106,6 +122,7 @@
 
   <div class="title">
     <button onclick="redirigir('OSTWALD', 'About', 0)">Páginas de OSTWALD</button>
+    <button class="Button_Ostwald_Program" onclick="window.location.href='https://ostwald-ro.github.io/OSTWALD/index'">Ostwald Program</button>
   </div>
 
   <script>
