@@ -10,13 +10,11 @@ var var_current_html__init = 0;
 
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
 
-var var_window_width__index, var_window_height__index;
-var var_window_diagonal__index;
-
-var var_Pixels_Per_Inch__index = 1;
-var var_inches__index;
+var var_navigator_userAgent__init;
 
 var var_current_device__init;
+var var_current_system__init, var_current_version__init, var_current_architecture__init;
+var var_current_browser__init;
 
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
 
@@ -28,32 +26,32 @@ var var_if_browser_OSTWALD__index;
 
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
 
-var testMode = false; // false Modo Normal | true Modo Prueba
+var var_testMode__index = false; // false Modo Normal | true Modo Prueba
 
-var currentURL = window.location.href;
-var mainURL = "https://ostwald-ro.github.io/OSTWALD/"; // Sesión
-var mainURLError = "https://ostwald-ro.github.io/OSTWALD/"; // Sesi%C3%B3n
-// var mainURLErrorHTML = "https://ostwald-ro.github.io/OSTWALD/index.html"; // Sesi%C3%B3n.html
+var var_currentURL__index = window.location.href;
+var var_mainURL__index = "https://ostwald-ro.github.io/OSTWALD/"; // Sesión
+var var_mainURLError__index  = "https://ostwald-ro.github.io/OSTWALD/"; // Sesi%C3%B3n
+// var var_mainURLErrorHTML__index = "https://ostwald-ro.github.io/OSTWALD/index.html"; // Sesi%C3%B3n.html
 
-var alternativeFunctions = true; // Funciones Alternativas | false true
+var var_alternativeFunctions__index  = true; // Funciones Alternativas | false true
 
 // Funciones 
 
-function end(_blank)
+function end__index(_blank)
 {
 
   if (
-      alternativeFunctions === true
+      var_alternativeFunctions__index  === true
      )
   {
     if (
-        testMode !== true
+        var_testMode__index !== true
        )
     {
       window.location.href = mainURL;
     } else
     {
-      // window.location.href = currentURL;
+      // window.location.href = var_currentURL__index;
       location.reload(true);
     }
   } else 
@@ -68,26 +66,26 @@ function end(_blank)
     {
 
       if (
-          testMode !== true
+          var_testMode__index !== true
          )
       {
         window.open(mainURL, '_blank');
       } else
       {
-        window.open(currentURL, '_blank');
+        window.open(var_currentURL__index, '_blank');
       }
 
     } else
     {
 
       if (
-          testMode !== true
+          var_testMode__index !== true
          )
       {
         window.open(mainURL);
       } else
       {
-        window.open(currentURL);
+        window.open(var_currentURL__index);
       }
 
     }
@@ -97,45 +95,174 @@ function end(_blank)
 
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
 
-function Pixels_Per_Inch(var_pixels__index)
+function navigator_userAgent__init() 
 {
-  console.log("Pixels_Per_Inch__index()");
+  console.log("navigator_userAgent__init()");
 
-  var_inches__index = var_pixels__index * var_Pixels_Per_Inch__index;
+  var_navigator_userAgent__index = "";
+  var_device__index = "";
+  var_system__index = ""; var_version__index = ""; var_architecture__index = "";
+  var_browser__index = "";
 
-  return var_inches__index;
-}
-
-function window_diagonal__index() 
-{
-  console.log("window_diagonal__index()");
-
-  // ancho de la ventana en píxeles
-  var_window_width__index = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var_var_navigator_userAgent__index = navigator.userAgent;
   
-  // alto de la ventana en píxeles
-  var_window_height__index = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  if (/Android|iPhone/i.test(navigator_userAgent)) 
+  {
+    var_device__index = "Mobile";
+    if (/Android/i.test(navigator_userAgent)) 
+    {
+      var_system__index = "Android";
+      if (/Android 13/i.test(navigator_userAgent)) 
+      {
+        var_version__index = 13;
+      } else 
+      if (/Android 12/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 12;
+     } else 
+     if (/Android 11/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 11;
+     } else 
+     if (/Android 10/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 10;
+     } else 
+     if (/Android 9/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 9;
+     } else 
+     if (/Android 8/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 8;
+     } else 
+     if (/Android 7/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 7;
+     } else 
+     if (/Android 6/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 6;
+     } else 
+     if (/Android 5/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 5;
+     } else 
+     if (/Android 4/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 4;
+     } else 
+     if (/Android 3/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 3;
+     } else 
+     if (/Android 2/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 2;
+     } else 
+     if (/Android 1/i.test(navigator_userAgent)) 
+     {
+        var_version__index = 1;
+     } else
+     {
+        var_version__index = "";
+     }
 
-  // Calcula la longitud de la diagonal usando el teorema de Pitágororas C = raiz(A² + B²)
-  var_window_diagonal__index = Math.sqrt(Math.pow(var_window_width__index, 2) + Math.pow(var_window_height__index, 2));
+     var_architecture__index = "";
+    }
+  } else 
+  if (/Tablet|iPad/i.test(navigator_userAgent)) 
+  {
+    var_device__index = "Tablet";
+  } else 
+  if (/TV|Television/i.test(navigator_userAgent)) 
+  {
+    var_device__index = "Televition";
+  } else 
+  if (/Windows|Mac|Linux/i.test(navigator_userAgent)) 
+  {
+    var_device__index = "Desktop";
+    if (/Windows/i.test(navigator_userAgent)) 
+    {
+      var_system__index = "Windows";
+      if (/NT 11./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 11;
+      } else 
+      if (/NT 10./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 10;
+      } else 
+      if (/NT 9./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 9;
+      } else 
+      if (/NT 8./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 8;
+      } else 
+      if (/NT 7./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 7;
+      } else 
+        if (/NT 6./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 6;
+      } else 
+      if (/NT 5./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 5;
+      } else 
+      if (/NT 4./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 4;
+      } else 
+      if (/NT 3./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 3;
+      } else 
+      if (/NT 2./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 2;
+      } else 
+      if (/NT 1./i.test(navigator_userAgent)) 
+      {
+        var_version__index = 1;
+      } else
+      {
+        var_version__index = "";
+      }
 
-  console.log(var_window_diagonal__index + " = raíz((" + var_window_width__index + "^2) + (" + var_window_height__index + "^2))");
-
-  // var_window_diagonal_inches__index = var_window_diagonal__index * var_Pixels_Per_Inch__index;
-
-  // Redondea el resultado a dos decimales
-  // var_window_diagonal_inches__index = var_window_diagonal_inches__index.toFixed(2);
-
-  return var_window_diagonal__index;
-}
-
-function current_device__init() 
-{
-  console.log("current_device()");
-
-  var_current_device__init = "desktop";
-
-  return var_current_device__init;
+      if (/Win64|x64/i.test(navigator_userAgent)) 
+      {
+        var_architecture__index = "x" + 64;
+      } else 
+      if (/Win32|x86/i.test(navigator_userAgent)) 
+      {
+        var_architecture__index = "x" + 86;
+      } else
+      {
+        var_architecture__index = "";
+      }
+    }
+  } else {
+    var_device__index = "Desconocido";
+  }
+  if (/Ostwald/i.test(navigator_userAgent)) 
+  {
+    var_browser__index = "Ostwald Browser";
+  } else 
+  if (/Edg/i.test(navigator_userAgent)) 
+  {
+    var_browser__index = "Microsoft Edge";
+  } else 
+  if (/Chrome/i.test(navigator_userAgent)) 
+  {
+    var_browser__index = "Google Chrome";
+  } else
+  {
+    var_browser__index = "Desconocido";
+  }
 }
 
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
@@ -170,9 +297,17 @@ function window_orientation__index()
 
 function if_browser_OSTWALD__index()
 {
-  // Comprobar si Ejecuta Desde el Navegador OSTWALD
+  // Comprobar si Ejecuta Desde var_browser__index OSTWALD
 
-  var_if_browser_OSTWALD__index = false;
+  navigator_userAgent__init();
+
+  if (var_browser__index === "Ostwald Browser")
+  {
+    var_if_browser_OSTWALD__index = true;
+  } else
+  {
+    var_if_browser_OSTWALD__index = false;
+  }
 
   return var_if_browser_OSTWALD__index;
 }
@@ -180,13 +315,11 @@ function if_browser_OSTWALD__index()
 /*  //  //  */  /*  //  //  */  /*  //  //  */  /*  //  //  */
 
 function delete_html__index()
-{  
-  /*
-  while (document.html.firstChild) 
+{
+  while (document.getElementsByTagName('html')[0].firstChild) 
   {
-    document.html.removeChild(document.html.firstChild);
+    document.getElementsByTagName('html')[0].removeChild(document.getElementsByTagName('html')[0].firstChild);
   }
-  */
 
   while (document.head.firstChild) 
   {
@@ -205,18 +338,18 @@ function init__index()
   //  Código Inicial
     
   if (
-      testMode === true
+      var_testMode__index === true
      )
   {
-    mainURLError = currentURL;
-    alternativeFunctions = false;
+    var_mainURLError__index  = var_currentURL__index;
+    var_alternativeFunctions__index  = false;
   }
       
   if (
-      currentURL !== mainURLError
+      var_currentURL__index !== var_mainURLError__index 
      )
   {
-    end();
+    end__index();
   }
 }
 
