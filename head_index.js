@@ -31,13 +31,12 @@ var var_testMode__index = false; // false Modo Normal | true Modo Prueba
 var var_currentURL__index = window.location.href;
 var var_mainURL__index = "https://ostwald-ro.github.io/OSTWALD/"; // Sesión
 var var_mainURLError__index  = "https://ostwald-ro.github.io/OSTWALD/"; // Sesi%C3%B3n
-// var var_mainURLErrorHTML__index = "https://ostwald-ro.github.io/OSTWALD/index.html"; // Sesi%C3%B3n.html
 
 var var_alternativeFunctions__index  = true; // Funciones Alternativas | false true
 
 // Funciones 
 
-function end__index(_blank)
+function end__index(var__blank__index)
 {
 
   if (
@@ -48,7 +47,7 @@ function end__index(_blank)
         var_testMode__index !== true
        )
     {
-      window.location.href = mainURL;
+      window.location.href = var_mainURL__index;
     } else
     {
       // window.location.href = var_currentURL__index;
@@ -61,7 +60,7 @@ function end__index(_blank)
     // location.reload(true);
 
     if (
-        _blank === true
+        var__blank__index === true
        )
     {
 
@@ -69,7 +68,7 @@ function end__index(_blank)
           var_testMode__index !== true
          )
       {
-        window.open(mainURL, '_blank');
+        window.open(var_mainURL__index, '_blank');
       } else
       {
         window.open(var_currentURL__index, '_blank');
@@ -82,7 +81,7 @@ function end__index(_blank)
           var_testMode__index !== true
          )
       {
-        window.open(mainURL);
+        window.open(var_mainURL__index);
       } else
       {
         window.open(var_currentURL__index);
@@ -352,5 +351,3 @@ function init__index()
     end__index();
   }
 }
-
-init__index();
