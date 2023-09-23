@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head onload="init__index()">
+    <script src="https://ostwald-ro.github.io/OSTWALD/head_index.js"></script><!-- defer async -->
+    <script>
+      init__index();
+    </script>
+    <title>JavaScript Habilitar</title>
+    <style>
+      html {
+        background-color: rgb( 31, 31, 31); /* background-color: rgb( 191, 191, 191); */
+
+        border: ridge rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        box-shadow: 0 0 1.5vh rgb(0, 0, 0);
+
+        border-radius: 0px 0px 0px 0px;
+        margin: solid;
+        padding: solid;
+
+        display: inline-block;
+
+        visibility: visible;
+
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        align-self: center;
+
+        height: calc(100% - 0.8%);
+        width: calc(100% - 0.4%);
+        font-family: Arial, sans-serif;
+      }
+    
+      html:hover {
+        background-color: rgb( 191, 191, 191);
+      }
+
+      body {
+        background-color: rgb( 0, 0, 0);
+
+        border: double rgb(191, 191, 191); /* border: ridge rgb(31, 31, 31); */
+        color: rgb(191, 191, 191); /* color: rgb(31, 31, 31); */
+        box-shadow: 0 0 1.5vh rgb(191, 191, 191); /* box-shadow: 0 0 1.5vh rgb(31, 31, 31); */
+
+        border-radius: 20px 20px 20px 20px;
+        margin: solid;
+        padding: solid;
+
+        display: flex;
+        flex-direction: column;
+
+        visibility: visible;
+
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        align-self: center;
+
+        height: calc(100% - 2.8%);
+        width: calc(100% - 1.6%);
+      }
+
+      h1 {
+        font-size: 6vw;
+      }
+      
+      h1:hover {
+        font-size: 6.1vw;
+        color: rgb( 255, 255, 255);
+      }
+    </style>
+  </head>
+  <body onload="main__index()">
+    <h1>JavaScript Habilitar</h1>
+    <script src="https://ostwald-ro.github.io/OSTWALD/body_index.js"></script><!-- defer async -->
+    <script>
+      init__index();
+      
+      document.addEventListener("DOMContentLoaded", function()
+      {
+        init__index();
+        main__index();
+      });
+    </script>
+  </body>
+</html>
