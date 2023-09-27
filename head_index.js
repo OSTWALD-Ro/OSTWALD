@@ -315,11 +315,6 @@ function if_browser_OSTWALD__index()
 
 function delete_html__index()
 {
-  while (document.getElementsByTagName('html')[0].firstChild) 
-  {
-    document.getElementsByTagName('html')[0].removeChild(document.getElementsByTagName('html')[0].firstChild);
-  }
-
   while (document.head.firstChild) 
   {
     document.head.removeChild(document.head.firstChild);
