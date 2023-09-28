@@ -15,7 +15,14 @@
       html, body, h1 {
         visibility: visible;
 
+        font-style: normal;
+        font-variant: normal;
+        text-transform: capitalize;
+        /* line-height: auto; */
+        /* letter-spacing: auto; */
         text-align: center;
+        /* text-decoration: none; */
+        
         align-items: center;
         justify-content: center;
 
@@ -99,11 +106,15 @@
       h1:hover, h1:focus {
         font-size: calc(6vw + 0.5vh);
         color: rgb( 255, 255, 255);
+        text-decoration: underline;
       }
 
       h1:active, h1:target {
         font-size: 6vw;
         color: rgb( 191, 191, 191);
+        font-style: italic;
+        /* font-variant: normal; */
+        text-decoration: overline;
       }
     </style>
   </head>
