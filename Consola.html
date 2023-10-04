@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consola de Comandos</title>
+    <style>
+        html {
+            border: solid;
+            border-color: rgb(191, 191, 191);
+            box-shadow: 0 0 1.5vh rgb(191, 191, 191);
+            height: calc(100vh - 0.65vw + 0.3vh - 0px);
+            width: calc(100vw - 1vh);
+        }
+
+        html, body, input {
+            background-color: rgb(0, 0, 0);
+            color: rgb(191, 191, 191);
+        }
+
+        label {
+            /* margin-right: 10pt; */
+            overflow: auto;
+        }
+
+        input {
+            border: none;
+            background-color: transparent;
+            width: calc(100vw - 6vw);
+            resize: none;
+            outline: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        #console-input_1 {
+            height: calc(100vh - 15vh);
+            width: calc(100vw - 1.5vw);
+        }
+    </style>
+</head>
+<body>
+    <label id="console-body">Ostwald Program [Versi&oacute;n 2023.10.03.22.50]<br>
+        (c) Ostwald Corporation. Todos los derechos reservados.<br>
+        <br>
+        Ostwald:/> ¿En Qué Puedo Servirle?, (Favor de Introducir Su Petición y Presionar Enter Para Continuar).<br>
+        <br>
+        Yo:/>
+    </label>
+    <input id="console-input_0"></input>
+    <br>
+    <input id="console-input_1"></input>
+    <script>
+        const inputElement_0 = document.getElementById('console-input_0');
+        const inputElement_1 = document.getElementById('console-input_1');
+        const outputElement = document.getElementById('console-body');
+
+        inputElement_0.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const command = inputElement_0.value;
+                const response = "Ostwald:/> " + executeCommand(command);
+                inputElement_0.value = '';
+                const responseOutput = document.createElement('div');
+                responseOutput.textContent = response;
+                const prompt = document.createElement('spam');
+                prompt.textContent = command;
+                outputElement.appendChild(prompt);
+                outputElement.appendChild(responseOutput);
+                outputElement.scrollTop = outputElement.scrollHeight;
+                outputElement.appendChild(document.createElement('br'));
+                const response_2 = document.createElement('spam');
+                response_2.textContent = "Yo:/> ";
+                outputElement.appendChild(response_2);
+            }
+        });
+
+        inputElement_1.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const command = inputElement_1.value;
+                const response = "Ostwald:/> " + executeCommand(command);
+                inputElement_1.value = '';
+                const responseOutput = document.createElement('div');
+                responseOutput.textContent = response;
+                const prompt = document.createElement('spam');
+                prompt.textContent = command;
+                outputElement.appendChild(prompt);
+                outputElement.appendChild(responseOutput);
+                outputElement.scrollTop = outputElement.scrollHeight;
+                outputElement.appendChild(document.createElement('br'));
+                const response_2 = document.createElement('spam');
+                response_2.textContent = "Yo:/> ";
+                outputElement.appendChild(response_2);
+            }
+        });
+
+        function executeCommand(command) {
+            // Aquí puedes definir la lógica para ejecutar comandos
+            if (command.toLowerCase() === 'hola') {
+                return 'Hola Soy Ostwald, ¿En Qué Puedo Servirle?';
+            } else if (command.toLowerCase() === 'salir' || command.toLowerCase() === 'cerrar') {
+                window.close();
+                return 'Disculpe Usted, se ha Provocado un Error, El Navegador Actual No Permite ' + command.toLowerCase();
+            } else {
+                return `Disculpe Usted, se ha Provocado un Error, Su Petición "` + command.toLowerCase() + `" no lo Puedo Entender`;
+            }
+        }
+    </script>
+</body>
+</html>
