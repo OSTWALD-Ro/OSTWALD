@@ -46,50 +46,58 @@
         </style>
     </head>
     <body>
-        <label id="console-body">Ostwald Program [Versi&oacute;n 2023.10.05.13.50]<br>
-            (c) Ostwald Corporation. Todos los derechos reservados.<br>
-            <br>
-            Ostwald:/> ¿En Qué Puedo Servirle?, (Favor de Introducir Su Petición y Presionar Enter Para Continuar).<br>
-            <br>
-            Yo:/>
-        </label>
-        <input id="console-input"></input>
+        <div>
+            <label id="console-body">Ostwald Program [Versi&oacute;n 2023.10.07.00.30]<br>
+                (c) Ostwald Corporation. Todos los derechos reservados.<br>
+                <br>
+                Ostwald:/> ¿En Qué Puedo Servirle?<br>
+                <br>
+                Yo:/>
+            </label>
+            <input id="console-input" type="text" placeholder=" Favor de Introducir Su Petición y Presionar Enter Para Continuar"></input>
+        </div>
         <script>
             const inputElement = document.getElementById('console-input');
             const outputElement = document.getElementById('console-body');
-
+    
             inputElement.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter' && inputElement.value !== '') {
                     event.preventDefault();
                     const command = inputElement.value;
-                    const response = "Ostwald:/> " + executeCommand(command);
                     inputElement.value = '';
-                    const responseOutput = document.createElement('div');
-                    responseOutput.textContent = response;
-                    const prompt = document.createElement('spam');
-                    prompt.textContent = command;
-                    outputElement.appendChild(prompt);
-                    outputElement.appendChild(responseOutput);
+    
+    
+                    // Agrega el comando y la respuesta con saltos de línea
+                    addTextWithLineBreaks(command + "\n" + "Ostwald:/> " + executeCommand(command) + "\n\n" + "Yo:/> ");
+                        
                     outputElement.scrollTop = outputElement.scrollHeight;
-                    outputElement.appendChild(document.createElement('br'));
-                    const response_2 = document.createElement('spam');
-                    response_2.textContent = "Yo:/> ";
-                    outputElement.appendChild(response_2);
                 }
             });
-
+    
             function executeCommand(command) {
                 // Aquí puedes definir la lógica para ejecutar comandos
-                if (command.toLowerCase() === 'actualizar' || command.toLowerCase() === 'actualisar') {
+                if (
+                    command.toLowerCase() === 'ostwald'
+                ) {
+                    return 'Mande Usted, Estoy a Su Servicio';
+                } else if (
+                    command.toLowerCase() === 'actualizar' || command.toLowerCase() === 'actualisar' ||
+                    command.toLowerCase() === 'actualizate' || command.toLowerCase() === 'actualisate'
+                ) {
                     location.reload(true);
                     return 'Actualizando';
-                } else if (command.toLowerCase() === 'hola' || command.toLowerCase() === 'ola') {
+                } else if (
+                    command.toLowerCase() === 'abrir'
+                ) {
+                    return 'Abriendo "';
+                } else if (
+                    command.toLowerCase() === 'hola' || command.toLowerCase() === 'ola'
+                ) {
                     return 'Hola Soy Ostwald, ¿En Qué Puedo Servirle?';
                 } else if (command.toLowerCase() === 'salir' || command.toLowerCase() === 'cerrar') {
-
                     // if (confirm('¿Estás seguro de que deseas ' + command.toLowerCase() + '?')) {
-                        window.close();
-                        return 'Disculpe Usted, se ha Provocado un Error, El Navegador Actual No Permite ' + command.toLowerCase();
+                    window.close();
+                    return 'Disculpe Usted, se ha Provocado un Error, El Navegador Actual No Permite ' + command.toLowerCase();
                     /* } else {
                         return "Petición '" + command.toLowerCase() + "' Cancelada";
                     }
@@ -98,6 +106,16 @@
                     return `Disculpe Usted, se ha Provocado un Error, Su Petición "` + command + `" no la Puedo Entender`;
                 }
             }
+    
+            // Función para agregar texto con saltos de línea
+            function addTextWithLineBreaks(text) {
+                const lines = text.split('\n');
+                lines.forEach((line, index) => {
+                    const textNode = document.createTextNode(line);
+                    outputElement.appendChild(textNode);
+                    outputElement.appendChild(document.createElement('br'));
+                });
+            }
         </script>
-    </body>
+    </body>    
 </html>
