@@ -97,12 +97,24 @@
     transition: 0.4s;
   }
 
+  .Button_Ostwald_Program_Beta {
+    border: ridge rgba(191, 191, 191, 0.5);
+    color: rgba(191, 191, 191, 0.5);
+    box-shadow: 0 0 1.5vh rgba(191, 191, 191, 0.5);
+  }
+
   .Button_Ostwald_Program:hover, .Button_Ostwald_Program:focus {
     border: double rgb(0, 255, 0);
     color: rgb(0, 255, 0);
     box-shadow: 0 0 1.5vh rgb(0, 255, 0);
 
     text-decoration: underline;
+  }
+
+  .Button_Ostwald_Program_Beta:hover, .Button_Ostwald_Program_Beta:focus {
+    border: double rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 1.5vh rgb(255, 255, 255);
   }
 
   .Button_Ostwald_Program:active, .Button_Ostwald_Program:target {
@@ -113,6 +125,12 @@
     font-style: italic;
     /* font-variant: normal; */
     text-decoration: overline;
+  }
+
+  .Button_Ostwald_Program_Beta:active, .Button_Ostwald_Program_Beta:target {
+    border: ridge rgba(191, 191, 191, 0.5);
+    color: rgba(191, 191, 191, 0.5);
+    box-shadow: 0 0 1.5vh rgba(191, 191, 191, 0.5);
   }
 
     @keyframes animacionTexto {
@@ -148,6 +166,7 @@
   <div>
     <button class="title_button" onclick="redirigir('OSTWALD', 'About', 0)">Páginas de OSTWALD</button>
     <button class="Button_Ostwald_Program" onclick="window.location.href='https://ostwald-ro.github.io/OSTWALD/index'">Ostwald Program</button>
+    <button class="Button_Ostwald_Program Button_Ostwald_Program_Beta" onclick="window.location.href='https://ostwald-ro.github.io/Beta/©OstwaldCorporation'">Ostwald Program [Beta]</button>
   </div>
 
   <script>
